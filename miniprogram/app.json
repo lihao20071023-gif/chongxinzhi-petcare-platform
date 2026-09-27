@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/login/index",
+    "pages/gate/index",
+    "pages/owner/home/index",
+    "pages/owner/pets/index",
+    "pages/owner/care/index",
+    "pages/owner/checkins/index",
+    "pages/owner/ai/index",
+    "pages/owner/reports/index",
+    "pages/doctor/home/index",
+    "pages/doctor/cases/index",
+    "pages/doctor/case-detail/index",
+    "pages/doctor/order/index",
+    "pages/doctor/execution/index",
+    "pages/doctor/reminders/index",
+    "pages/doctor/hospital-bind/index"
+  ],
+  "usingComponents": {
+    "role-tabs": "/components/role-tabs/index"
+  },
+  "window": {
+    "navigationBarTitleText": "宠馨智",
+    "navigationBarBackgroundColor": "#F7FBF8",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F4F8F6",
+    "backgroundTextStyle": "light"
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,15 @@
+.git
+.gitignore
+.env*
+!.env.api.example
+node_modules
+.next
+admin-web/.next
+admin-web/out
+out
+outputs
+work
+exports
+*.log
+.DS_Store
+

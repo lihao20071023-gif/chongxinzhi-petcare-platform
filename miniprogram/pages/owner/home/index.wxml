@@ -1,0 +1,19 @@
+<view class="page">
+  <view class="hero">
+    <view class="eyebrow">TODAY CARE</view>
+    <view class="title">{{pet ? pet.name + '，今天也好好照顾你' : '先为宠物建立真实档案'}}</view>
+    <view class="subtitle">医生负责治疗决策，宠馨智帮你把出院后的每一项护理落到今天。</view>
+    <view wx:if="{{pet}}" class="progress"><text>{{completedCount}} / {{taskCount}}</text><text>今日护理已完成</text></view>
+  </view>
+  <view wx:if="{{error}}" class="notice error">{{error}}</view>
+  <view class="section-title">常用功能</view>
+  <view class="grid">
+    <view class="tile" data-url="/pages/owner/care/index" bindtap="open"><view class="tile-icon">✅</view><view class="tile-title">每日护理</view><view class="tile-note">执行医生确认的任务</view></view>
+    <view class="tile" data-url="/pages/owner/checkins/index" bindtap="open"><view class="tile-icon">📈</view><view class="tile-title">健康打卡</view><view class="tile-note">保存饮水、食欲和症状</view></view>
+    <view class="tile" data-url="/pages/owner/pets/index" bindtap="open"><view class="tile-icon">🐶</view><view class="tile-title">宠物档案</view><view class="tile-note">宠物与就诊医院管理</view></view>
+    <view class="tile" data-url="/pages/owner/reports/index" bindtap="open"><view class="tile-icon">🧾</view><view class="tile-title">化验报告</view><view class="tile-note">上传原件，等待核对</view></view>
+    <view class="tile" data-url="/pages/owner/ai/index" bindtap="open"><view class="tile-icon">✨</view><view class="tile-title">AI护理助手</view><view class="tile-note">基于已审核知识回答</view></view>
+  </view>
+  <view class="notice">出现无尿、呼吸困难、抽搐、无法站立或持续呕吐等情况，不等待AI答复，请立即联系急诊医院。</view>
+</view>
+<role-tabs role="pet_owner" active="home"/>

@@ -1,0 +1,12 @@
+.login-page { padding-top: 110rpx; }
+.brand-mark { width: 112rpx; height: 112rpx; margin: 0 auto 24rpx; display: flex; align-items: center; justify-content: center; border-radius: 38rpx; background: linear-gradient(145deg,#267354,#72b390); color: #fff; font-size: 52rpx; box-shadow: 0 20rpx 50rpx rgba(37,112,82,.24); }
+.center { text-align: center; }
+.role-card { margin-top: 60rpx; }
+.section-head { font-size: 29rpx; font-weight: 800; margin-bottom: 20rpx; }
+.role-option { display: flex; align-items: center; gap: 22rpx; padding: 24rpx; border: 2rpx solid #e2ebe6; border-radius: 24rpx; background: #fbfdfc; }
+.role-option + .role-option { margin-top: 18rpx; }
+.role-option.selected { border-color: #4c9975; background: #edf8f2; box-shadow: inset 0 0 0 2rpx rgba(76,153,117,.12); }
+.role-icon { display: flex; align-items: center; justify-content: center; width: 72rpx; height: 72rpx; border-radius: 24rpx; background: #dff1e7; font-size: 36rpx; }
+.role-icon.blue { background: #e4edf7; }
+.role-title { font-size: 28rpx; font-weight: 800; }
+.login-button { margin-top: 28rpx; }

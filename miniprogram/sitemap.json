@@ -1,0 +1,4 @@
+{
+  "desc": "宠馨智小程序页面索引",
+  "rules": [{ "action": "disallow", "page": "*" }]
+}

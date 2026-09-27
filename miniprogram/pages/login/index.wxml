@@ -1,0 +1,21 @@
+<view class="page login-page">
+  <view class="brand-mark">🐾</view>
+  <view class="title center">宠馨智</view>
+  <view class="subtitle center">宠物慢性病院后护理协同平台</view>
+
+  <view class="card role-card">
+    <view class="section-head">你将以什么身份使用？</view>
+    <view class="role-option {{selectedRole === 'pet_owner' ? 'selected' : ''}}" data-role="pet_owner" bindtap="selectRole">
+      <view class="role-icon">🏠</view>
+      <view><view class="role-title">我是宠物主人</view><view class="meta">执行护理、记录变化、联系医院</view></view>
+    </view>
+    <view class="role-option {{selectedRole === 'doctor' ? 'selected' : ''}}" data-role="doctor" bindtap="selectRole">
+      <view class="role-icon blue">🩺</view>
+      <view><view class="role-title">我是宠物医生</view><view class="meta">需绑定医院并通过资质审核</view></view>
+    </view>
+    <view wx:if="{{error}}" class="notice error">{{error}}</view>
+    <button class="primary login-button" loading="{{loading}}" disabled="{{loading}}" bindtap="login">微信授权登录</button>
+  </view>
+
+  <view class="bottom-note">管理员不在小程序登录，请在电脑端打开宠馨智管理后台。<br/>首次登录不会自动展示任何虚构医院、医生或病例。</view>
+</view>

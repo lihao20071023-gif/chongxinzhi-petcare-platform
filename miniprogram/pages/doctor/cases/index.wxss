@@ -1,0 +1,1 @@
+.search { display:flex; gap:16rpx; margin-top:26rpx; }.search .input { flex:1; }.search .secondary { width:150rpx; line-height:76rpx; }.case-list { margin-top:22rpx; }.case-card:active { transform: scale(.99); background:#f8fbf9; }

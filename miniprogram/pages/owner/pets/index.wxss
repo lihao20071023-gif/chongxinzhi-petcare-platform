@@ -1,0 +1,1 @@
+.row button { flex: 1; }.field .primary { line-height: 78rpx; }.field .secondary { line-height: 74rpx; }.card .meta { margin-top: 12rpx; }.reports-button { margin-top:20rpx; }

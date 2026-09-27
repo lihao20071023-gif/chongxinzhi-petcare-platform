@@ -1,0 +1,1 @@
+.switch { display:grid; grid-template-columns:1fr 1fr; gap:14rpx; margin-bottom:22rpx; }.switch button { line-height:76rpx; }.status { margin-top:24rpx; }.status .meta { margin-top:14rpx; }.submit { margin-top:28rpx; }

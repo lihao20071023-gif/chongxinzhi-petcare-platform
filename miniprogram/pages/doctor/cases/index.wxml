@@ -1,0 +1,13 @@
+<view class="page">
+  <view class="hero"><view class="eyebrow">HOSPITAL CASES</view><view class="title">本院待处理病例</view><view class="subtitle">宠主选择本院并授权后才会出现。其他医院医生无法读取这些病例。</view></view>
+  <view class="card search"><input class="input" value="{{query}}" bindinput="input" placeholder="搜索宠物名、病种或分期"/><button class="secondary" bindtap="load">查询</button></view>
+  <view wx:if="{{error}}" class="notice error">{{error}}</view>
+  <view wx:if="{{items.length}}" class="case-list">
+    <view wx:for="{{items}}" wx:key="case_id" class="card case-card" data-id="{{item.case_id}}" bindtap="openCase">
+      <view class="row"><view><view class="list-title">{{item.species === 'dog' ? '🐶' : '🐱'}} {{item.name}}</view><view class="meta">{{item.diagnosis || item.disease || '诊断未录入'}} · {{item.disease_stage || item.stage || '分期未确认'}}</view></view><view class="pill">{{item.latest_status || '待查看'}}</view></view>
+      <view class="divider"></view><view class="meta">点击查看宠主执行情况、护理方案与打卡记录 →</view>
+    </view>
+  </view>
+  <view wx:else class="card empty">本院暂时没有已授权病例。</view>
+</view>
+<role-tabs role="doctor" active="cases"/>

@@ -1,0 +1,27 @@
+<view class="page">
+  <view class="hero"><view class="eyebrow">PET PROFILE</view><view class="title">真实宠物档案</view><view class="subtitle">不预置演示宠物。宠物、疾病和医院都由你填写或由就诊医院确认。</view></view>
+  <view wx:if="{{error}}" class="notice error">{{error}}</view>
+  <view class="section-title">我的宠物</view>
+  <view wx:if="{{pets.length}}"><view wx:for="{{pets}}" wx:key="id" class="card"><view class="row"><view><view class="list-title">{{item.species === 'dog' ? '🐶' : '🐱'}} {{item.name}}</view><view class="meta">{{item.breed || '品种未填'}} · {{item.weight_kg || '体重未填'}}kg</view></view><view class="pill">{{item.disease || '未确诊慢病'}}</view></view><view class="meta">就诊医院：{{item.hospital_name || '尚未选择'}}</view></view></view>
+  <view wx:else class="card empty">还没有宠物档案，请从下方建立第一份真实资料。</view>
+  <view class="section-title">选择就诊医院</view>
+  <view class="card">
+    <view class="field"><text class="label">宠物</text><picker range="{{pets}}" range-key="name" bindchange="choosePet"><view class="picker">点击选择宠物</view></picker></view>
+    <view class="field"><text class="label">已核验医院</text><picker range="{{hospitals}}" range-key="name" bindchange="chooseHospital"><view class="picker">点击选择医院</view></picker></view>
+    <button class="primary" bindtap="bindHospital">确认选择并授权本院医生</button>
+    <view class="meta">平台只列出已审核公开的医院。授权后，本院有效医生可查看该宠物的病例和居家护理记录。</view>
+  </view>
+  <view class="section-title">新增宠物</view>
+  <view class="card">
+    <view class="field"><text class="label">名字</text><input class="input" value="{{form.name}}" data-key="name" bindinput="input" placeholder="宠物真实名字"/></view>
+    <view class="field"><text class="label">类型</text><view class="row"><button class="{{form.species === 'cat' ? 'primary' : 'secondary'}}" data-value="cat" bindtap="selectSpecies">猫</button><button class="{{form.species === 'dog' ? 'primary' : 'secondary'}}" data-value="dog" bindtap="selectSpecies">犬</button></view></view>
+    <view class="field"><text class="label">品种</text><input class="input" value="{{form.breed}}" data-key="breed" bindinput="input" placeholder="不确定可留空"/></view>
+    <view class="field"><text class="label">实际体重（kg）</text><input class="input" type="digit" value="{{form.weightKg}}" data-key="weightKg" bindinput="input" placeholder="例如 4.8"/></view>
+    <view class="field"><text class="label">确诊疾病 / 病史</text><textarea class="textarea" value="{{form.disease}}" data-key="disease" bindinput="input" placeholder="只填写医院已经确认的疾病；尚未确诊可留空"/></view>
+    <view class="field"><text class="label">疾病分期</text><input class="input" value="{{form.stage}}" data-key="stage" bindinput="input" placeholder="例如：IRIS 2期；不确定请留空"/></view>
+    <button class="primary" bindtap="savePet">保存真实档案</button>
+  </view>
+  <view class="section-title">病史与化验资料</view><view class="card"><view class="list-title">化验单原件</view><view class="meta">拍照上传后保留原图，OCR与AI结果会标记是否经过医生核对。</view><button class="secondary reports-button" bindtap="openReports">上传或查看化验单</button></view>
+  <view class="bottom-note">选择就诊医院后才会建立授权关系；其他医院医生不能查看该宠物资料。</view>
+</view>
+<role-tabs role="pet_owner" active="pets"/>

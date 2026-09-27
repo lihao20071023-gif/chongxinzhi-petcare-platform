@@ -1,0 +1,1 @@
+.periods { display:grid; grid-template-columns:repeat(3,1fr); gap:12rpx; margin:26rpx 0; }.periods button { line-height:72rpx; }

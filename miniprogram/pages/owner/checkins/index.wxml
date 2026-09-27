@@ -1,0 +1,16 @@
+<view class="page">
+  <view class="hero"><view class="eyebrow">HOME MONITORING</view><view class="title">用家里能观察到的内容完成记录</view><view class="subtitle">不要求每位主人都有专业设备。体重和饮水可留空，食欲、精神、排尿、排便和症状同样有价值。</view></view>
+  <view wx:if="{{error}}" class="notice error">{{error}}</view><view wx:if="{{saved}}" class="notice success">已存档：本次记录已保存到云端，并会与历史记录一起供本院医生查看。</view>
+  <view class="section-title">新记录</view><view class="card">
+    <view class="field"><text class="label">宠物</text><picker range="{{pets}}" range-key="name" bindchange="choosePet"><view class="picker">点击选择宠物</view></picker></view>
+    <view class="field"><text class="label">体重 kg（选填）</text><input class="input" type="digit" value="{{form.weightKg}}" data-key="weightKg" bindinput="input"/></view>
+    <view class="field"><text class="label">饮水量 ml（选填）</text><input class="input" type="number" value="{{form.waterMl}}" data-key="waterMl" bindinput="input"/></view>
+    <view class="field"><text class="label">食欲</text><input class="input" value="{{form.appetite}}" data-key="appetite" bindinput="input" placeholder="正常 / 减少 / 不吃"/></view>
+    <view class="field"><text class="label">精神</text><input class="input" value="{{form.spirit}}" data-key="spirit" bindinput="input" placeholder="正常 / 安静 / 虚弱"/></view>
+    <view class="field"><text class="label">饮水与尿团情况</text><textarea class="textarea" value="{{form.urineNote}}" data-key="urineNote" bindinput="input" placeholder="例如：今天饮水次数增加，尿团约4个"/></view>
+    <view class="field"><text class="label">呕吐次数</text><input class="input" type="number" value="{{form.vomitingCount}}" data-key="vomitingCount" bindinput="input"/></view>
+    <view class="field"><text class="label">新症状与详细描述</text><textarea class="textarea" value="{{form.symptomNote}}" data-key="symptomNote" bindinput="input" placeholder="发生时间、持续多久、是否影响进食或活动"/></view>
+    <button class="primary" bindtap="save">保存本次真实记录</button>
+  </view>
+  <view class="section-title">以往记录</view><view wx:if="{{history.length}}"><view wx:for="{{history}}" wx:key="id" class="card"><view class="row"><view class="list-title">{{item.pet_name}}</view><view class="pill">{{item.recorded_at_label}}</view></view><view class="meta">体重 {{item.weight_kg || '未填'}}kg · 饮水 {{item.water_ml || '未填'}}ml · 呕吐 {{item.vomiting_count}}次<br/>食欲 {{item.appetite || '未填'}} · 精神 {{item.spirit || '未填'}}</view></view></view><view wx:else class="card empty">还没有云端记录。</view>
+</view>

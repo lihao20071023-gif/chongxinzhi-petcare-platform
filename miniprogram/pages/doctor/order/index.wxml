@@ -1,0 +1,19 @@
+<view class="page">
+  <view class="hero"><view class="eyebrow">MEDICAL ORDER</view><view class="title">医生下医嘱，AI拆任务</view><view class="subtitle">AI只拆解你明确写出的内容，不得自行增加药物、剂量、诊断或治疗决定。</view></view>
+  <view wx:if="{{error}}" class="notice error">{{error}}</view>
+  <view class="section-title">医嘱内容</view>
+  <view class="card">
+    <view class="field"><text class="label">病例</text><picker range="{{cases}}" range-key="displayName" bindchange="chooseCase"><view class="picker">{{caseId ? '已选择病例' : '点击选择病例'}}</view></picker></view>
+    <view class="field"><text class="label">方案标题</text><input class="input" data-key="title" value="{{form.title}}" bindinput="input"/></view>
+    <view class="field"><text class="label">医生医嘱</text><textarea class="textarea order-text" data-key="medicalOrder" value="{{form.medicalOrder}}" bindinput="input" placeholder="写清楚已确认的护理、用药、饮食、监测和异常联系条件。剂量不明确时不要让AI猜。"/></view>
+    <view class="field"><text class="label">开始日期</text><input class="input" data-key="startDate" value="{{form.startDate}}" bindinput="input" placeholder="YYYY-MM-DD"/></view>
+    <button class="secondary generate" loading="{{generating}}" bindtap="generate">AI生成任务草稿</button>
+  </view>
+  <block wx:if="{{generated}}">
+    <view class="section-title">待医生审核的任务</view>
+    <view wx:if="{{generated.missingConfirmations.length}}" class="notice">需要医生补充确认：{{generated.missingConfirmations.join('；')}}</view>
+    <view wx:for="{{generated.tasks}}" wx:key="id" class="card"><view class="row"><view class="list-title">{{item.title}}</view><view class="pill">草稿</view></view><view class="meta">{{item.instruction}}</view></view>
+    <button class="primary publish" loading="{{publishing}}" bindtap="publish">医生确认并发布给宠主</button>
+  </block>
+</view>
+<role-tabs role="doctor" active="order"/>

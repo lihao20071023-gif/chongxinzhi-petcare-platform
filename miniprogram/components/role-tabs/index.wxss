@@ -1,0 +1,4 @@
+.tabs { position: fixed; z-index: 20; left: 18rpx; right: 18rpx; bottom: 16rpx; display: flex; padding: 12rpx 10rpx; border: 1rpx solid #dbe7e1; border-radius: 28rpx; background: rgba(255,255,255,.96); box-shadow: 0 16rpx 50rpx rgba(36,70,53,.16); backdrop-filter: blur(18rpx); }
+.tab { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 5rpx; color: #76847d; font-size: 20rpx; }
+.tab text:first-child { font-size: 32rpx; }
+.tab.active { color: #216e50; font-weight: 800; }

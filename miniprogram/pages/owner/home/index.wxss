@@ -1,0 +1,1 @@
+.progress { position: relative; z-index: 1; display: flex; justify-content: space-between; margin-top: 28rpx; padding: 18rpx 22rpx; border-radius: 20rpx; background: rgba(255,255,255,.72); color: #2f664f; font-size: 24rpx; font-weight: 700; }

@@ -1,0 +1,14 @@
+<view class="page">
+  <view wx:if="{{error}}" class="notice error">{{error}}</view>
+  <block wx:if="{{detail}}">
+    <view class="hero"><view class="eyebrow">CASE DETAIL</view><view class="title">{{detail.case.pets.name}}</view><view class="subtitle">{{detail.case.diagnosis || '诊断待补充'}} · {{detail.case.disease_stage || '分期待确认'}}<br/>状态：{{detail.case.status}}</view></view>
+    <button class="primary order-button" bindtap="createOrder">下医嘱 / 修改护理方案（新版本）</button>
+    <view class="section-title">宠主执行情况</view>
+    <view class="card"><view class="row"><view><view class="list-title">护理任务</view><view class="meta">已发布与草稿共 {{detail.tasks.length}} 项</view></view><view class="pill">打卡 {{detail.completions.length}} 次</view></view></view>
+    <view class="section-title">最近健康记录</view>
+    <view wx:if="{{detail.checkins.length}}"><view wx:for="{{detail.checkins}}" wx:key="id" class="card"><view class="row"><view class="list-title">{{item.recorded_at}}</view><view class="pill">呕吐 {{item.vomiting_count}} 次</view></view><view class="meta">体重 {{item.weight_kg || '未填'}}kg · 饮水 {{item.water_ml || '未填'}}ml<br/>食欲 {{item.appetite || '未填'}} · 精神 {{item.spirit || '未填'}}<br/>{{item.symptom_note || '未记录新症状'}}</view></view></view><view wx:else class="card empty">宠主还没有提交健康记录。</view>
+    <view class="section-title">护理方案版本</view>
+    <view wx:if="{{detail.plans.length}}"><view wx:for="{{detail.plans}}" wx:key="id" class="card"><view class="row"><view class="list-title">第 {{item.version}} 版</view><view class="pill">{{item.status}}</view></view><view class="meta">{{item.plan.title || '院后护理方案'}}</view></view></view><view wx:else class="card empty">还没有护理方案。</view>
+  </block>
+</view>
+<role-tabs role="doctor" active="cases"/>

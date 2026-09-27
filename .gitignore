@@ -1,0 +1,31 @@
+# Secrets and local runtime configuration
+.env
+.env.*
+!.env.example
+!.env.api.example
+!.env.local-ai.example
+!admin-web/.env.local.example
+
+# Dependencies and generated output
+node_modules/
+.next/
+admin-web/.next/
+out/
+admin-web/out/
+outputs/
+*.tsbuildinfo
+
+# Logs, local caches and operating-system files
+*.log
+.DS_Store
+.pnpm-store/
+coverage/
+
+# Large local reference media and portable export packages
+# These files stay on this computer but are not copied into Git worktrees.
+work/
+exports/*.zip
+
+# Supabase local state
+supabase/.branches/
+supabase/.temp/

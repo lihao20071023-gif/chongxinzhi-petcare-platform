@@ -1,0 +1,13 @@
+<view class="tabs safe-area-bottom">
+  <block wx:if="{{role === 'doctor'}}">
+    <view class="tab {{active === 'home' ? 'active' : ''}}" data-url="/pages/doctor/home/index" bindtap="go"><text>🏥</text><text>工作台</text></view>
+    <view class="tab {{active === 'cases' ? 'active' : ''}}" data-url="/pages/doctor/cases/index" bindtap="go"><text>📋</text><text>病例</text></view>
+    <view class="tab {{active === 'order' ? 'active' : ''}}" data-url="/pages/doctor/order/index" bindtap="go"><text>🩺</text><text>下医嘱</text></view>
+  </block>
+  <block wx:else>
+    <view class="tab {{active === 'home' ? 'active' : ''}}" data-url="/pages/owner/home/index" bindtap="go"><text>🏠</text><text>今日</text></view>
+    <view class="tab {{active === 'care' ? 'active' : ''}}" data-url="/pages/owner/care/index" bindtap="go"><text>✅</text><text>护理</text></view>
+    <view class="tab {{active === 'pets' ? 'active' : ''}}" data-url="/pages/owner/pets/index" bindtap="go"><text>🐾</text><text>档案</text></view>
+    <view class="tab {{active === 'ai' ? 'active' : ''}}" data-url="/pages/owner/ai/index" bindtap="go"><text>✨</text><text>AI问答</text></view>
+  </block>
+</view>
