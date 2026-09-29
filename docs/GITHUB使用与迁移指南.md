@@ -10,9 +10,15 @@
 
 GitHub不是数据库，也不会保存当前浏览器的本机打卡、宠物档案或管理员账号。正式用户数据必须进入宠馨智自己的数据库。
 
-## 首次上传：推荐使用私有仓库
+## 当前GitHub仓库
 
-项目尚未正式发布，医疗规则、产品路线和商业设计都属于重要资产，首次上传建议选择 **Private repository（私有仓库）**。
+宠馨智已于2026年9月29日发布为公开仓库：
+
+```text
+https://github.com/lihao20071023-gif/chongxinzhi-petcare-platform
+```
+
+仓库采用MIT许可证。任何人都能查看和下载公开源码，但真实密钥、用户数据、宠物病历、管理员账号、测试视频和本地备份不会上传。
 
 ### 使用GitHub Desktop
 
@@ -25,12 +31,10 @@ GitHub不是数据库，也不会保存当前浏览器的本机打卡、宠物�
    ```
 
 4. 确认当前分支为 `main`，能看到基线提交。
-5. 点击 `Publish repository`。
-6. 仓库名称建议：`chongxinzhi-petcare-platform`。
-7. 保持 `Keep this code private` 为选中状态。
-8. 发布完成后，再在分支菜单确认 `codex/petcare-sandbox`，点击 `Publish branch`。
+5. 已发布仓库会显示 `Fetch origin`、`Pull origin` 或 `Push origin`，不再显示 `Publish repository`。
+6. `main` 是正式版本，`codex/petcare-sandbox` 是试验新功能的分支。
 
-点击 `Publish repository` 会把代码上传到GitHub。上传前再次确认仓库是私有的，并确认提交列表里没有 `.env.api`。
+提交和推送前，确认文件列表里没有 `.env.api`、密钥或真实用户数据。
 
 ## 日常使用
 
@@ -104,4 +108,3 @@ pnpm build
 - 源码压缩包用于离线备份或一次性交付；
 - 压缩包不包含提交历史，不能替代GitHub；
 - 两者都不应包含真实密钥和用户隐私数据。
-
