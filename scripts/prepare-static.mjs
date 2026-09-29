@@ -9,6 +9,8 @@ await copyFile('out/design/index.html', 'out/design.html');
 await copyFile('out/design/owner/index.html', 'out/design-owner.html');
 await copyFile('out/design/doctor/index.html', 'out/design-doctor.html');
 await copyFile('out/design/admin/index.html', 'out/design-admin.html');
+await copyFile('out/experience/index.html', 'out/experience.html');
+await copyFile('out/visual-analysis/index.html', 'out/visual-analysis.html');
 await cp('admin-web/out', 'out/admin', { recursive: true, force: true });
 
 // Keep the portable folder used by the local preview and cross-computer handoff

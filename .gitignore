@@ -25,6 +25,7 @@ coverage/
 # These files stay on this computer but are not copied into Git worktrees.
 work/
 exports/*.zip
+exports/*.bundle
 
 # Supabase local state
 supabase/.branches/

@@ -20,6 +20,8 @@ import {
   Smartphone,
   Stethoscope,
   UserRound,
+  PlayCircle,
+  Palette,
 } from 'lucide-react';
 
 const ownerFeatures = ['首页与宠物档案', '每日护理与打卡', 'AI护理问答', '化验单上传'];
@@ -34,12 +36,12 @@ const architecture = [
 ];
 
 const careLoopSteps = [
-  {icon:FileSignature,title:'1. 医生签署',detail:'方案含医院、医生、日期、范围和版本'},
-  {icon:Bot,title:'2. AI拆任务',detail:'仅解释和拆分，不擅自修改诊疗方案'},
+  {icon:LockKeyhole,title:'1. 选择当前方式',detail:'随病程在居家自主与医院协同间切换'},
+  {icon:Bot,title:'2. 建立依据',detail:'医生方案或已审核知识库护理建议'},
   {icon:ClipboardCheck,title:'3. 宠主执行',detail:'用药、饮食、补液、监测统一完成'},
   {icon:Activity,title:'4. 长期存档',detail:'基础/普通/专业三种记录模式'},
-  {icon:AlertTriangle,title:'5. 异常回传',detail:'红橙黄绿分级进入医生队列'},
-  {icon:CalendarCheck2,title:'6. 复诊验证',detail:'用复查指标证明是否改善或需调整'},
+  {icon:AlertTriangle,title:'5. 风险分流',detail:'医院回传或给出继续观察与就医选择'},
+  {icon:CalendarCheck2,title:'6. 结果复核',detail:'比较长期趋势，治疗调整仍由兽医决定'},
 ];
 
 export function SystemPortal() {
@@ -60,6 +62,14 @@ export function SystemPortal() {
           <div className="mx-auto inline-flex items-center gap-2 rounded-full bg-[#e5f3eb] px-4 py-2 text-xs font-bold text-[#2b7255]"><HeartHandshake size={15}/>宠物慢性病院后护理协同平台</div>
           <h1 className="mx-auto mt-6 max-w-4xl text-4xl font-bold tracking-[-.04em] text-[#173f30] sm:text-6xl">不是三个App，<span className="text-[#2b7858]">是一套按角色工作的系统</span></h1>
           <p className="mx-auto mt-6 max-w-3xl text-sm leading-7 text-[#65786e] sm:text-base">宠主和医生在同一个微信小程序登录；系统读取服务器角色后自动显示相应页面。管理员只使用电脑Web后台。所有端共用一个API和同一套数据库。</p>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row"><a href="experience.html" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#216e50] px-6 text-sm font-bold text-white shadow-[0_12px_30px_rgba(33,110,80,.20)]"><PlayCircle size={18}/>亲自体验完整护理闭环</a><a href="visual-analysis.html" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-[#cadbd2] bg-white px-6 text-sm font-bold text-[#276c52]"><Palette size={18}/>查看14张截图视觉分析</a></div>
+        </section>
+
+        <section className="mx-auto max-w-[1220px] px-5 pb-14 sm:px-8">
+          <div className="grid gap-4 overflow-hidden rounded-[30px] border border-[#d9ddcf] bg-[linear-gradient(135deg,#fff8e9,#e8f6ef)] p-6 shadow-[0_18px_50px_rgba(49,81,63,.08)] md:grid-cols-[1.2fr_.8fr] md:items-center md:p-8">
+            <div><span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1.5 text-[10px] font-black text-[#8d6b34]">NEW · 可点击体验</span><h2 className="mt-4 text-2xl font-black sm:text-3xl">不是固定双路径，而是可切换的连续护理</h2><p className="mt-3 max-w-2xl text-sm leading-7 text-[#63756c]">可以先居家管理、恶化后授权医院，也可以由医院诊疗后回家继续协同护理，再切换为自主护理。护理方式会变，宠物长期档案不会断。</p></div>
+            <a href="experience.html" className="flex min-h-14 items-center justify-between rounded-2xl bg-[#1f8061] px-5 text-sm font-black text-white">体验可切换护理闭环<ArrowRight size={19}/></a>
+          </div>
         </section>
 
         <section className="mx-auto grid max-w-[1220px] gap-4 px-5 pb-14 sm:grid-cols-2 sm:px-8 lg:grid-cols-4">
@@ -79,8 +89,8 @@ export function SystemPortal() {
         <section id="care-loop" className="mx-auto max-w-[1220px] px-5 pb-16 sm:px-8">
           <div className="overflow-hidden rounded-[32px] border border-[#c8dfd3] bg-white shadow-[0_24px_65px_rgba(39,88,64,.10)]">
             <div className="flex flex-col gap-5 bg-[linear-gradient(135deg,#e2f3ea,#f8fcfa)] p-6 sm:flex-row sm:items-end sm:justify-between sm:p-9">
-              <div><h2 className="text-2xl font-bold sm:text-3xl">这不是方向图，下面每一步都能点开</h2><p className="mt-3 max-w-3xl text-sm leading-7 text-[#5f756a]">主治医生签署方案后，AI把医嘱拆成每天的任务；宠主执行和记录；异常进入医生队列；医生处理并在复诊时验证方案效果。</p></div>
-              <a href="index.html" className="flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[#216e50] px-5 py-3 text-sm font-bold text-white">进入宠主闭环首页<ArrowRight size={17}/></a>
+              <div><h2 className="text-2xl font-bold sm:text-3xl">医院是可切换的协同方，不是使用门槛</h2><p className="mt-3 max-w-3xl text-sm leading-7 text-[#5f756a]">医院诊疗时由医生签署方案，平台转成居家任务；自主护理时由AI管家依据已审核知识库提供非药物护理建议。宠主可以在不同阶段切换、换医院或重新授权，所有变化继续写入同一份档案。</p></div>
+              <a href="experience.html" className="flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[#216e50] px-5 py-3 text-sm font-bold text-white">进入可切换体验<ArrowRight size={17}/></a>
             </div>
             <div className="grid divide-y divide-[#e3ebe7] md:grid-cols-3 md:divide-x md:divide-y-0 xl:grid-cols-6">
               {careLoopSteps.map(({icon:Icon,title,detail})=><div key={title} className="min-h-40 p-5"><span className="grid size-10 place-items-center rounded-2xl bg-[#e8f3ed] text-[#287153]"><Icon size={19}/></span><b className="mt-4 block text-sm">{title}</b><p className="mt-2 text-xs leading-5 text-[#718078]">{detail}</p></div>)}
